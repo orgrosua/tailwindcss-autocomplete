@@ -13,26 +13,25 @@ const pkg = JSON.parse(
 );
 
 await build({
+  minify: true,
   entryPoints: ["src/index.ts", "src/utils.ts"],
   bundle: true,
-  treeShaking: true,
-  format: "cjs",
-  platform: "node",
-  minify: true,
   external: Object.keys({
     ...pkg.dependencies,
     ...pkg.peerDependencies,
   }).filter((name) => name !== "tailwindcss"),
+  format: 'esm',
+  target: ['es2020'],
   logLevel,
   outdir: "./dist",
   sourcemap: true,
-  target: ["es2020"],
   loader: { ".css": "text" },
   define: {
     "process.env.DEBUG": "undefined",
     "process.env.JEST_WORKER_ID": "1",
     "process.env.NODE_ENV": '"production"',
     __dirname: '"/"',
+    __OXIDE__: 'undefined',
   },
   plugins: [
     {
@@ -130,7 +129,6 @@ await build({
               .replace(/(process\.)?env\.ENGINE/g, "undefined")
               .replace(/(process\.)?env\.NODE_ENV/g, '"production"')
               .replace(/(process\.)?env\.OXIDE/g, "undefined")
-              .replace(/__OXIDE__/g, "undefined");
             return { contents };
           }
         );

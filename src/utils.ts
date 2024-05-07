@@ -29,7 +29,6 @@ export function stateFromConfig(
     enabled: true,
     modules: {
       postcss: {
-        // @ts-expect-error https://github.com/postcss/postcss/pull/1815
         module: postcss,
         version: '',
       },
