@@ -1,5 +1,5 @@
 {
-  "name": "tailwindcss-autocomplete",
+  "name": "@yabe-siul/tailwindcss-autocomplete",
   "version": "0.5.10",
   "description": "A Package to autocomplete tailwindcss classes",
   "files": [
@@ -15,7 +15,7 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Reyzartz/tailwindcss-autocomplete"
+    "url": "https://github.com/orgrosua/tailwindcss-autocomplete"
   },
   "keywords": [
     "tailwind",
